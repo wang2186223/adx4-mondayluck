@@ -1629,11 +1629,29 @@
                 window.addEventListener('scroll', this.updateOverlayPosition, { passive: true });
                 window.addEventListener('resize', this.updateOverlayPosition, { passive: true });
 
+                // Report Facebook Pixel event when ad guide is triggered
+                this.reportFacebookAdGuideEvent();
+
                 // Report ad guide trigger event to Google Sheets
                 this.reportAdGuideTriggered();
 
                 // Enable clicking on target ad
                 this.enableAdClick(targetAd);
+            }
+
+            // Report Facebook Pixel event for ad guide trigger
+            reportFacebookAdGuideEvent() {
+                // Check if shouldTrackEvent function exists (from Facebook Pixel code)
+                if (typeof shouldTrackEvent === 'function' && typeof fbq === 'function') {
+                    if (shouldTrackEvent('1_c')) {
+                        fbq('track', '1_c');
+                        console.log('Facebook event sent: 1_c (ad guide popup triggered)');
+                    } else {
+                        console.log('Facebook event skipped: 1_c (already sent within 72 hours)');
+                    }
+                } else {
+                    console.log('Facebook Pixel not available for 1_c event');
+                }
             }
 
             // Report ad guide trigger event
