@@ -2165,16 +2165,28 @@
                     <div style="border-top: 1px solid #444; margin: 8px 0; padding-top: 8px;">Inactivity Reset (${this.INACTIVITY_RESET_MINUTES}min)</div>
                     <div>Countdown: ${inactivityDisplay}</div>
                     <div style="border-top: 1px solid #444; margin: 8px 0; padding-top: 8px;">Status: ${this.isGuideActive ? 'Active' : 'Standby'}</div>
-                    <button onclick="adGuideSystem.resetAllData()" style="
-                        margin-top: 10px;
-                        padding: 5px 10px;
-                        background: #007AFF;
-                        color: white;
-                        border: none;
-                        border-radius: 4px;
-                        cursor: pointer;
-                        font-size: 11px;
-                    ">Reset Now</button>
+                    <div style="display: flex; gap: 5px; margin-top: 10px;">
+                        <button onclick="adGuideSystem.addOneAd()" style="
+                            flex: 1;
+                            padding: 5px 10px;
+                            background: #34C759;
+                            color: white;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            font-size: 11px;
+                        ">+1 Ad</button>
+                        <button onclick="adGuideSystem.resetAllData()" style="
+                            flex: 1;
+                            padding: 5px 10px;
+                            background: #007AFF;
+                            color: white;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            font-size: 11px;
+                        ">Reset</button>
+                    </div>
                 `;
             }
 
@@ -2194,6 +2206,19 @@
                 this.stopScrollMonitoring();
                 console.log('Ad Guide: All data reset (including total ads, threshold, trigger count, long cooldown and activity time)');
                 this.updateDebugInfo();
+            }
+
+            // Debug function: manually add one ad view
+            addOneAd() {
+                this.totalAdsSeen++;
+                this.saveTotalAdsSeen();
+                console.log(`Ad Guide: [DEBUG] Manually added 1 ad, total: ${this.totalAdsSeen}, threshold: ${this.nextTriggerThreshold}`);
+                this.updateDebugInfo();
+                
+                // Check if trigger condition is met
+                if (this.totalAdsSeen >= this.nextTriggerThreshold) {
+                    this.considerTriggeringGuide();
+                }
             }
 
             startPeriodicCheck() {

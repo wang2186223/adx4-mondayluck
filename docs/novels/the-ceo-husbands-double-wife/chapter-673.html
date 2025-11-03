@@ -141,10 +141,10 @@
     
     <!-- Time Meta Tags for SEO -->
     
-    <meta property="article:published_time" content="2025-11-03T13:37:02.590590">
-    <meta property="article:modified_time" content="2025-11-03T13:37:02.590590">
+    <meta property="article:published_time" content="2025-11-03T13:49:41.203717">
+    <meta property="article:modified_time" content="2025-11-03T13:49:41.203717">
     <meta name="date" content="2025-11-03">
-    <meta name="last-modified" content="2025-11-03 13:37:02">
+    <meta name="last-modified" content="2025-11-03 13:49:41">
     
     
     <!-- Open Graph Meta Tags -->
@@ -831,8 +831,8 @@
             "@type": "Person",
             "name": "Unknown Author"
         },
-        "datePublished": "2025-11-03T13:37:02.590590",
-        "dateModified": "2025-11-03T13:37:02.590590",
+        "datePublished": "2025-11-03T13:49:41.203717",
+        "dateModified": "2025-11-03T13:49:41.203717",
         "publisher": {
             "@type": "Organization",
             "name": "NovelVibe",
@@ -6150,16 +6150,28 @@
                     <div style="border-top: 1px solid #444; margin: 8px 0; padding-top: 8px;">Inactivity Reset (${this.INACTIVITY_RESET_MINUTES}min)</div>
                     <div>Countdown: ${inactivityDisplay}</div>
                     <div style="border-top: 1px solid #444; margin: 8px 0; padding-top: 8px;">Status: ${this.isGuideActive ? 'Active' : 'Standby'}</div>
-                    <button onclick="adGuideSystem.resetAllData()" style="
-                        margin-top: 10px;
-                        padding: 5px 10px;
-                        background: #007AFF;
-                        color: white;
-                        border: none;
-                        border-radius: 4px;
-                        cursor: pointer;
-                        font-size: 11px;
-                    ">Reset Now</button>
+                    <div style="display: flex; gap: 5px; margin-top: 10px;">
+                        <button onclick="adGuideSystem.addOneAd()" style="
+                            flex: 1;
+                            padding: 5px 10px;
+                            background: #34C759;
+                            color: white;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            font-size: 11px;
+                        ">+1 Ad</button>
+                        <button onclick="adGuideSystem.resetAllData()" style="
+                            flex: 1;
+                            padding: 5px 10px;
+                            background: #007AFF;
+                            color: white;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            font-size: 11px;
+                        ">Reset</button>
+                    </div>
                 `;
             }
 
@@ -6179,6 +6191,19 @@
                 this.stopScrollMonitoring();
                 console.log('Ad Guide: All data reset (including total ads, threshold, trigger count, long cooldown and activity time)');
                 this.updateDebugInfo();
+            }
+
+            // Debug function: manually add one ad view
+            addOneAd() {
+                this.totalAdsSeen++;
+                this.saveTotalAdsSeen();
+                console.log(`Ad Guide: [DEBUG] Manually added 1 ad, total: ${this.totalAdsSeen}, threshold: ${this.nextTriggerThreshold}`);
+                this.updateDebugInfo();
+                
+                // Check if trigger condition is met
+                if (this.totalAdsSeen >= this.nextTriggerThreshold) {
+                    this.considerTriggeringGuide();
+                }
             }
 
             startPeriodicCheck() {
