@@ -1,18 +1,18 @@
 // Google Apps Script 代码 - 网站访问统计系统(每日独立表格版本)
-// 主控制表格 ID: 1hO9dXSL6mG9UJlhSgVp-5nyKk3YGtU7hg205iortWek
-// 部署URL: https://script.google.com/macros/s/AKfycbxMxl-Qajl17Eo4e-_ftIab-7011ikZiFlijPrPBwKdh3qjtg3eE5WNUheXrZM-9k4tfQ/exec
+// 主控制表格 ID: 1R20ha3-6U-vvfL-2LpLEDC6vy0HO8uj6xvxNPZyF0no
+// 部署URL: https://script.google.com/macros/s/AKfycbweF_mr9XBjZCoNOBIThsWxDkgLBGn_kUWGcKZ345WzxS25U9SAXQqL880UaVUU4MzOVw/exec
 // 
 // 架构说明：
 // - 主表格：用于控制台、统计汇总、表格索引
 // - 每日表格：每天自动创建新的独立表格，包含当天的详细数据和广告引导数据
-// - 表格命名：adx-mynovel-2025-01-15
+// - 表格命名：adx4-monday-2025-01-15
 // - 文件夹：所有每日表格存放在"网站统计数据"文件夹中
 
 // ==================== 配置常量 ====================
 
-const MAIN_SPREADSHEET_ID = '1hO9dXSL6mG9UJlhSgVp-5nyKk3YGtU7hg205iortWek';
+const MAIN_SPREADSHEET_ID = '1R20ha3-6U-vvfL-2LpLEDC6vy0HO8uj6xvxNPZyF0no';
 const DATA_FOLDER_NAME = '网站统计数据';
-const SPREADSHEET_PREFIX = 'adx-mynovel-';
+const SPREADSHEET_PREFIX = 'adx4-monday-';
 
 // ==================== 主入口函数 ====================
 
