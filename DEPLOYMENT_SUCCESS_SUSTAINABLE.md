@@ -47,14 +47,14 @@
 - **部署版本**: 3 (2025年10月11日下午2:08)
 
 ### 网站配置:
-- **域名**: https://re.cankalp.com
+- **域名**: https://novel.mondayluck.com
 - **页面数量**: 1800+ 页面已全部更新
 - **数据收集**: 时间、访问页面、用户属性、来源页面
 
 ## 🧪 测试验证
 
 ### 立即测试：
-1. 访问您的网站：https://re.cankalp.com
+1. 访问您的网站：https://novel.mondayluck.com
 2. 浏览任何页面（首页、小说页、章节页）
 3. 查看 Google Sheets：https://docs.google.com/spreadsheets/d/1kEvOkFHVQ92HK0y7I1-8qEjfzYrwt0DFQWEiVNTqXS4/edit
 

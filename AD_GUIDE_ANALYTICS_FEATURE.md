@@ -13,9 +13,9 @@
 | 字段 | 说明 | 示例 |
 |------|------|------|
 | eventType | 事件类型（固定值） | `ad_guide_triggered` |
-| page | 访问页面URL | `https://adx.myfreenovel.com/novels/test/chapter-1.html` |
+| page | 访问页面URL | `https://novel.mondayluck.com/novels/test/chapter-1.html` |
 | userAgent | 用户浏览器信息 | `Mozilla/5.0 (iPhone; ...)` |
-| referrer | 来源页面 | `https://adx.myfreenovel.com/novels/test/` |
+| referrer | 来源页面 | `https://novel.mondayluck.com/novels/test/` |
 | userIP | 用户IP地址 | `123.45.67.89` 或 `Unknown` |
 | totalAdsSeen | 累计看到的广告数（跨页面） | `15` |
 | currentPageAds | 当前页面的广告数 | `3` |

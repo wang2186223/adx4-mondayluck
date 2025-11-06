@@ -573,9 +573,9 @@ function manualCleanupDuplicates() {
 function testPageVisit() {
   const testData = {
     eventType: 'page_visit',
-    page: 'https://re.cankalp.com/novels/test/chapter-1',
+    page: 'https://novel.mondayluck.com/novels/test/chapter-1',
     userAgent: 'Mozilla/5.0 (iPhone; Test)',
-    referrer: 'https://re.cankalp.com/novels/test/index',
+    referrer: 'https://novel.mondayluck.com/novels/test/index',
     userIP: '127.0.0.1'
   };
   
@@ -589,9 +589,9 @@ function testPageVisit() {
 function testAdGuide() {
   const testData = {
     eventType: 'ad_guide_triggered',
-    page: 'https://re.cankalp.com/novels/test/chapter-1',
+    page: 'https://novel.mondayluck.com/novels/test/chapter-1',
     userAgent: 'Mozilla/5.0 (iPhone; Test)',
-    referrer: 'https://re.cankalp.com/novels/test/index',
+    referrer: 'https://novel.mondayluck.com/novels/test/index',
     userIP: '127.0.0.1',
     totalAdsSeen: 15,
     currentPageAds: 3,
